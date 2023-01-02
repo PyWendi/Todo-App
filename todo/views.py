@@ -161,14 +161,3 @@ def logout(request):
     del request.session["user_id"]
     request.session["auth"] = False
     return HttpResponseRedirect(reverse("todo:index"))
-    
-"""
-class IndexView(generic.FormView):
-    template_name = "todo/index.html"
-    form_class = SignupForm
-    success_url = "login"
-
-    def form_valid(self, form):
-        print("Everything fine")
-        return super().form_valid(form)
-"""
