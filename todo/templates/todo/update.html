@@ -1,0 +1,28 @@
+{% extends 'todo/base.html' %}
+{% load static %}
+
+{% block title %}Edit Task{% endblock title %}
+
+{% block content %}
+        <!-- Modal Add Form -->
+    <div class="">
+        <div class="bg-light card mt-4 round" >
+            <!-- Header form -->
+            <div class="card-header align-items-center d-flex flex-row justify-content-center p-3">
+                <h2 class="text-success m-2" style="text-align:center;">Edit the following task </h2>
+                <div class="icon m-2"><i class="text-success bi bi-journal-check"></i></div>
+            </div>
+
+            <!-- Main form body -->
+
+            <form class="card-body" method="post" action="{% url 'todo:todo-edit' task.id %}">
+                {% csrf_token %}
+                {{ editform }}
+                <p class="text-danger mt-3 radius">{{ msg }}</p>
+                <input style="width:100%;" class="justify-content-center mt-3 btn btn-success" type="submit" value="Submit">
+            </form>
+            <a href="{% url 'todo:todo-index' %}" class="btn btn-danger bg-danger card-footer text-light">Cancel</a>
+        </div>
+    </div>
+
+{% endblock content %}

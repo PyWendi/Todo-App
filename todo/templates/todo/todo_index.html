@@ -1,0 +1,65 @@
+{% extends 'todo/base.html' %}
+{% load static %}
+
+{% block title %}Todo App{% endblock title %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-sm-8 justify-content-center jumbotron jumbotron-fluid  ">
+            <h1 class="m-4 inli text-light p-3 display-1 ">My Todo App</h1>
+        </div>
+        <nav class="col-sm-4 justify-content-center navbar navbar-expand-sm">
+        <!-- Links -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link p-2 m-3 btn-success text-light" href="{% url 'todo:logout' %}">Log out</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+
+    <!-- <> -->
+    <div class="row">
+        <div class="col-lg-6">
+            <img alt="Gif image" src="{% static 'todo/images/animation_500_l9vj8mp0.gif' %}" width="100%">
+        </div>
+
+        <div class="col-lg-6 bg-light card mt-4 round-index" >
+            <!-- Header form -->
+            <div class="card-header align-items-center d-flex flex-row justify-content-center p-3">
+                <h2 class="text-success m-2" style="text-align:center;">YOUR TASKS </h2>
+                <div class="icon m-2"><i class="text-success bi bi-list-task"></i></div>
+            </div>
+        <!-- Main form body -->
+            <div class="card-body ovflow">
+            {% for task in tasks %}
+                <div class="card mt-4 shad">
+                    <div class="card-header bg-success text-light">
+                        <h3 class="card-title">{{task.title}}</h3>
+                    </div>
+
+                    <div class="car-body">
+                        <p class="card-text p-3 text-muted">{{task.description}}</p>
+                    </div>
+
+                    <div class="card-footer">
+                        <p>{{task.date}} at {{task.time}}</p>
+                    </div>
+
+                    <div class="d-flex flex-row justify-content-end">
+                        <a class="bg-primary p-2 mleft text-light" href="{% url 'todo:todo-edit' task.id %}">Edit</a>
+                        <a class="bg-danger p-2 mleft text-white" href="{% url 'todo:todo-delete' task.id %}">Delete</a>
+                    </div>
+                </div>
+            {% endfor %}
+            </div>
+            <div class="d-flex justify-content-center">
+                <a class="" href="{% url 'todo:todo-add' %}"><div class="cent icon"><i class="text-success display-1 cent bi bi-plus-square-fill"></i></div></a>
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock content %}

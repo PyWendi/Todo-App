@@ -1,0 +1,28 @@
+{% extends 'todo/base.html' %}
+{% load static %}
+
+{% block title %}Signe up{% endblock title %}
+
+{% block content %}
+
+    <!-- Main form container -->
+    <div class="bg-light card mt-4 round" >
+        <!-- Header form -->
+        <div class="card-header">
+            <h2 class="text-success">Log into</h2>
+        </div>
+
+        <!-- Main form body -->
+
+        <form class="card-body" method="post" action="{% url 'todo:login' %}">
+            {% csrf_token %}
+            {{ form }}
+            <input style="width:100%;" class="justify-content-center mt-3 btn btn-success" type="submit" value="Submit">
+            <p class="alert-danger p-1 mt-3 radius">{{ msg }}</p>
+        </form>
+        <p class="card-footer text-black">Do not have an account ? <br> <a class="text-success" href="{% url 'todo:signup' %}">Sign up</a>.</p>
+        <a class="btn btn-black bg-secondary text-body" href="{% url 'todo:index' %}">Return back to home</a>
+    </div>
+
+
+{% endblock content %}
