@@ -25,6 +25,7 @@ python manage.py runserver
 After that, there is a warning saying that some migration are not applied.
 in the command line, stop the server using "ctrl+C" then type in the terminal the following command:
 ```
+python manage.py makemigrations todo
 python manage.py migrate
 ```
 Now run the server again, open your browser and write the open the project on the following URL 
