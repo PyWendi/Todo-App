@@ -12,19 +12,19 @@ This app provide a user authentication, which allow the user to see only his/her
 _In order to run this project, first of all, you must have python installed on your system.
 If you don't have it yet, you can download it in the official website at www.python.org.
 _Then use the python package manager [pip](https://pip.pypa.io/en/stable/) to install "django" through the command line using following command:
-```
+```bash
 pip install django
 ```
 
 ## Usage
 To run the project, go in the directory where the file "manage.py" is located.
-Open the command line inside this directory and run the following command to run the project
-```
+Open the command line inside this directory and run the following commands to run the project
+```shell
 python manage.py runserver
 ```
 After that, there is a warning saying that some migration are not applied.
 in the command line, stop the server using "ctrl+C" then type in the terminal the following command:
-```
+```bash
 python manage.py makemigrations todo
 python manage.py migrate
 ```
@@ -36,7 +36,7 @@ Now enjoy
 ### Manage database and Admin panel
 Django provide an admin page where you can manage the app data.
 To use it, first create an admin account by typing the following command:
-```
+```bash
 python manage.py createsuperuser
 ```
 Then follow the instruction to create the admin account.
